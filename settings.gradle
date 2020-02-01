@@ -1,2 +1,11 @@
 include ':app'
 rootProject.name='Scoreboard-App-Native-Flutter-Module'
+
+setBinding(new Binding([gradle:this]))
+
+evaluate(new File(
+        settingsDir.parentFile,
+        'test_flutter_module/.android/include_flutter.groovy'
+))
+include ':test_flutter_module'
+project(':test_flutter_module').projectDir = new File('../test_flutter_module')
